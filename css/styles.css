@@ -3,15 +3,18 @@
   /* Fonts */
 
   /* Colors */
-  --primary-brand: #4d5ae5;
-  --pressed-state: #404bbf;
-  --dark: #2e2f42;
-  --success: #31d0aa;
-  --text: #434455;
-  --subtle-text: #8e8f99;
-  --accent: #e7e9fc;
-  --light: #f4f4fd;
-  --white-background: #ffffff;
+  --primary-brand: rgb(77, 90, 229);
+  --pressed-state: rgb(64, 75, 191);
+  --dark: rgb(46, 47, 66);
+  --success: rgb(49, 208, 170);
+  --text: rgb(67, 68, 85);
+  --subtle-text: rgb(142, 143, 153);
+  --accent: rgb(231, 233, 252);
+  --light: rgb(244, 244, 253);
+  --modal-overlay: rgba(46, 47, 66, 0.4);
+  --hero-background: rgba(46, 47, 66, 0.7);
+  --white-background: rgb(255, 255, 255);
+  --modal-background: rgb(252, 252, 252);
 }
 
 /* #endregion */
@@ -175,6 +178,45 @@ address {
 .card-set-item {
   width: calc((100% - 3 * 24px) / 4);
 }
+
+/* Social icons */
+
+.social-icons-title {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white-background);
+  margin-bottom: 16px;
+}
+
+.social-icons-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.social-icons-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--pressed-state);
+  transition-property: background-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons-link:hover .social-icons-wrapper,
+.social-icons-link:focused .social-icons-wrapper {
+  background-color: var(--success);
+}
+
+.social-icons-wrapper svg {
+  fill: var(--light);
+}
 /* #endregion */
 
 /* #region Sections*/
@@ -216,10 +258,26 @@ address {
 .header-nav-link {
   display: block;
   padding: 24px 0;
+  position: relative;
+}
+
+.header-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: block;
+  border-radius: 2px;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+}
+
+.header-nav-link.active::after {
+  background: var(--pressed-state);
 }
 
 .header-nav-link:hover,
-.header-nav-link:active,
 .header-nav-link:focus {
   color: var(--pressed-state);
 }
@@ -227,7 +285,13 @@ address {
 /* Hero */
 .hero {
   background-color: var(--dark);
+  background-image: linear-gradient(
+      var(--hero-background),
+      var(--hero-background)
+    ),
+    url(../images/hero/hero-background.jpg);
   padding: 188px 0;
+  max-width: 1440px;
 }
 
 .hero-container {
@@ -260,6 +324,19 @@ address {
 .advantages-item {
   width: 264px;
 }
+
+.advantages-icon-wrapper {
+  width: 100%;
+  height: 112px;
+  borderborder: 1px solid var(--subtle-text);
+  border-radius: 4px;
+  background: var(--light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 .advantages-item-title {
   font-weight: 500;
   font-size: 20px;
@@ -293,10 +370,17 @@ address {
 .team-member {
   background-color: var(--white-background);
   border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba (var(--dark), 0.08),
+    0 1px 1px 0 rgba (var(--dark), 0.16), 0 1px 6px 0 rgba (var(--dark), 0.08);
 }
 
 .team-member-info {
-  padding: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 16px;
 }
 
 .team-member-img {
@@ -316,6 +400,7 @@ address {
   letter-spacing: 0.02em;
   text-align: center;
   color: var(--text);
+  padding-bottom: 8px;
 }
 
 /* Portfolio */
@@ -336,9 +421,14 @@ address {
 }
 .portfolio-item {
   width: calc((100% - 48px) / 3);
-  align-items: flex-start;
   background-color: var(--white-background);
 }
+
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba (var(--dark), 0.08),
+    0 1px 1px 0 rgba (var(--dark), 0.16), 0 1px 6px 0 rgba (var(--dark), 0.08);
+}
+
 .portfolio-item-info {
   padding: 32px 16px;
   border: 1px solid var(--accent);
@@ -369,6 +459,11 @@ address {
 }
 
 .footer-container {
+  display: inline-flex;
+}
+
+.studio-info {
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -382,5 +477,9 @@ address {
   letter-spacing: 0.02em;
   color: var(--light);
   width: 264px;
+}
+
+.footer-social-icons .social-icons-list {
+  width: 208px;
 }
 /* #endregion */
