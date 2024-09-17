@@ -181,14 +181,6 @@ address {
 
 /* Social icons */
 
-.social-icons-title {
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--white-background);
-  margin-bottom: 16px;
-}
-
 .social-icons-list {
   display: flex;
   align-items: flex-start;
@@ -205,12 +197,12 @@ address {
   height: 40px;
   border-radius: 50%;
   background-color: var(--pressed-state);
-  transition-property: background-color;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
 }
 
-.social-icons-link:hover .social-icons-wrapper,
-.social-icons-link:focused .social-icons-wrapper {
+.social-icons-link:hover,
+.social-icons-link:focus {
   background-color: var(--success);
 }
 
@@ -459,11 +451,12 @@ address {
 }
 
 .footer-container {
-  display: inline-flex;
+  display: flex;
 }
 
 .studio-info {
   margin-right: 120px;
+  width: 264px;
 }
 
 .footer-logo {
@@ -479,7 +472,16 @@ address {
   width: 264px;
 }
 
-.footer-social-icons .social-icons-list {
+.footer-social-info {
   width: 208px;
 }
+
+.social-icons-title {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white-background);
+  margin-bottom: 16px;
+}
+
 /* #endregion */
