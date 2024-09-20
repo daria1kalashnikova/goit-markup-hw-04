@@ -180,7 +180,6 @@ address-link {
 
 .card-set-item {
   width: calc((100% - 3 * 24px) / 4);
-  padding: 32px 0;
 }
 
 /* Social icons */
