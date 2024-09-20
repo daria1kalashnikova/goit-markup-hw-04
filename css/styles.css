@@ -211,7 +211,7 @@ footer .social-icons-link:focus {
   background-color: var(--success);
 }
 
-.social-icons-svg {
+.social-icons-link svg {
   fill: var(--light);
 }
 /* #endregion */
